@@ -79,7 +79,9 @@ class Symfony2_Sniffs_Formatting_BlankLineBeforeReturnSniff implements PHP_CodeS
             || $prevLineTokens[0] === 'T_COLON')
         ) {
             return;
-        } else if (count($prevLineTokens) > 0) {
+        }
+
+        if (count($prevLineTokens) > 0) {
             $phpcsFile->addError(
                 'Missing blank line before return statement',
                 $stackPtr
