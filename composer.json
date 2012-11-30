@@ -1,0 +1,14 @@
+{
+    "name": "instaclick/symfony2-coding-standard",
+    "description": "A code standard to check against the Symfony coding standards.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Instaclick",
+            "homepage": "http://instaclick.com/",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+    }
+}
