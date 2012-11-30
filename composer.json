@@ -9,6 +9,7 @@
             "role": "Maintainer"
         }
     ],
+    "target-dir": "Symfony2",
     "require": {
     }
 }
