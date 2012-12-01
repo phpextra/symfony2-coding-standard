@@ -57,6 +57,9 @@ class Symfony2_Tests_ObjectCalisthenics_OneIndentationLevelUnitTest extends Abst
     public function getWarningList()
     {
         return array(
+            10 => 1,
+            39 => 1,
+            57 => 1,
         );
     }
 }

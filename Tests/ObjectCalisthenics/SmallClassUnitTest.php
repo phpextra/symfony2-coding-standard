@@ -13,7 +13,7 @@
  */
 
 /**
- * Unit test class for the NoElse sniff.
+ * Unit test class for the SmallClass sniff.
  *
  * A sniff unit test checks a .inc file for expected violations of a single
  * coding standard. Expected errors and warnings are stored in this class.
@@ -25,7 +25,7 @@
  * @license   http://spdx.org/licenses/MIT MIT License
  * @link      https://github.com/opensky/Symfony2-coding-standard
  */
-class Symfony2_Tests_ObjectCalisthenics_NoElseUnitTest extends AbstractSniffUnitTest
+class Symfony2_Tests_ObjectCalisthenics_SmallClassUnitTest extends AbstractSniffUnitTest
 {
     /**
      * Returns the lines where errors should occur.
@@ -38,9 +38,6 @@ class Symfony2_Tests_ObjectCalisthenics_NoElseUnitTest extends AbstractSniffUnit
     public function getErrorList()
     {
         return array(
-            26 => 1,
-            32 => 1,
-            33 => 2,
         );
     }
 
@@ -55,6 +52,8 @@ class Symfony2_Tests_ObjectCalisthenics_NoElseUnitTest extends AbstractSniffUnit
     public function getWarningList()
     {
         return array(
+            7 => 1,
+            96 => 1,
         );
     }
 }

@@ -53,16 +53,13 @@ class Symfony2_Sniffs_ObjectCalisthenics_OneIndentationLevelSniff implements PHP
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
-        // We are only interested if this is the first open tag.
-        if ($stackPtr !== 0 &&
-            $phpcsFile->findPrevious(T_OPEN_TAG, ($stackPtr - 1)) !== false
-        ) {
-                return;
+        if ($stackPtr !== 0) {
+            return;
         }
 
         $parser = new PHPParser_Parser(new PHPParser_Lexer);
 
-        $visitor = new Symfony2_Sniffs_ObjectCalisthenics_ControlStructureVisitor;
+        $visitor = new Symfony2_Sniffs_ObjectCalisthenics_OneIndentationLevelSniff_NodeVisitor;
         $visitor->setPHPCodeSnifferFile($phpcsFile);
 
         $traverser = new PHPParser_NodeTraverser;

@@ -4,7 +4,7 @@
  *
  * @author Anthon Pang <apang@softwaredevelopment.ca>
  */
-class Symfony2_Sniffs_ObjectCalisthenics_ControlStructureVisitor extends PHPParser_NodeVisitorAbstract
+class Symfony2_Sniffs_ObjectCalisthenics_OneIndentationLevelSniff_NodeVisitor extends PHPParser_NodeVisitorAbstract
 {
     /**
      * @var PHP_CodeSniffer_File
@@ -14,7 +14,7 @@ class Symfony2_Sniffs_ObjectCalisthenics_ControlStructureVisitor extends PHPPars
     /**
      * @var array
      */
-    private $functionList;
+    private $functionScopeStack;
 
     /**
      * Set PHP CodeSniffer File
@@ -33,9 +33,12 @@ class Symfony2_Sniffs_ObjectCalisthenics_ControlStructureVisitor extends PHPPars
      *
      * @return integer
      */
-    private function getStackPointer($node)
+    private function findStackPointer($node)
     {
-        foreach ($this->phpcsFile->getTokens() as $stackPtr => $token) {
+        $tokens = $this->phpcsFile
+                       ->getTokens();
+
+        foreach ($tokens as $stackPtr => $token) {
             if ($node->getLine() > $token['line']) {
                 continue;
             }
@@ -47,19 +50,17 @@ class Symfony2_Sniffs_ObjectCalisthenics_ControlStructureVisitor extends PHPPars
     /**
      * Report coding standard violation if nested control structure detected
      *
-     * @param Symfony2_Sniffs_ObjectCalisthenics_ControlStructureStack $stack Control structure stack
-     * @param PHPParser_Node                                           $node  Current node
+     * @param Symfony2_Sniffs_ObjectCalisthenics_TokenStack $tokenStack Token stack
+     * @param PHPParser_Node                                $node       Current node
      */
-    private function checkNesting($stack, $node)
+    private function checkNesting($tokenStack, $node)
     {
-        if ( ! $stack->isNested()) {
+        if ( ! $tokenStack->isNested()) {
             return;
         }
 
-        $this->phpcsFile->addError(
-            'Only one level of indentation per method/function',
-            $this->getStackPointer($node)
-        );
+        $this->phpcsFile
+             ->addError('Only one level of indentation per method/function', $this->findStackPointer($node));
     }
 
     /**
@@ -67,7 +68,7 @@ class Symfony2_Sniffs_ObjectCalisthenics_ControlStructureVisitor extends PHPPars
      */
     public function beforeTraverse(array $nodes)
     {
-        $this->functionList = array(new Symfony2_Sniffs_ObjectCalisthenics_ControlStructureStack);
+        $this->functionScopeStack = array(new Symfony2_Sniffs_ObjectCalisthenics_OneIndentationLevelSniff_TokenStack);
     }
 
     /**
@@ -79,7 +80,7 @@ class Symfony2_Sniffs_ObjectCalisthenics_ControlStructureVisitor extends PHPPars
             case 'Stmt_ClassMethod':
             case 'Expr_Closure':
             case 'Stmt_Function':
-                array_push($this->functionList, new Symfony2_Sniffs_ObjectCalisthenics_ControlStructureStack);
+                array_push($this->functionScopeStack, new Symfony2_Sniffs_ObjectCalisthenics_OneIndentationLevelSniff_TokenStack);
                 break;
 
             case 'Stmt_If':
@@ -87,10 +88,10 @@ class Symfony2_Sniffs_ObjectCalisthenics_ControlStructureVisitor extends PHPPars
             case 'Stmt_While':
             case 'Stmt_For':
             case 'Stmt_Foreach':
-                $stack = end($this->functionList);
-                $stack->push($node->getType());
+                $tokenStack = end($this->functionScopeStack);
+                $tokenStack->push($node->getType());
 
-                $this->checkNesting($stack, $node);
+                $this->checkNesting($tokenStack, $node);
                 break;
         }
     }
@@ -104,7 +105,7 @@ class Symfony2_Sniffs_ObjectCalisthenics_ControlStructureVisitor extends PHPPars
             case 'Stmt_ClassMethod':
             case 'Expr_Closure':
             case 'Stmt_Function':
-                array_pop($this->functionList);
+                array_pop($this->functionScopeStack);
                 break;
 
             case 'Stmt_If':
@@ -112,8 +113,8 @@ class Symfony2_Sniffs_ObjectCalisthenics_ControlStructureVisitor extends PHPPars
             case 'Stmt_While':
             case 'Stmt_For':
             case 'Stmt_Foreach':
-                $stack = end($this->functionList);
-                $stack->pop();
+                $tokenStack = end($this->functionScopeStack);
+                $tokenStack->pop();
                 break;
         }
     }

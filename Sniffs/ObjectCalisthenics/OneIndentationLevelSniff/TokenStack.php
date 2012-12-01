@@ -1,10 +1,10 @@
 <?php
 /**
- * Control structure stack
+ * Token stack
  *
  * @author Anthon Pang <apang@softwaredevelopment.ca>
  */
-class Symfony2_Sniffs_ObjectCalisthenics_ControlStructureStack
+class Symfony2_Sniffs_ObjectCalisthenics_OneIndentationLevelSniff_TokenStack
 {
     /**
      * @var array

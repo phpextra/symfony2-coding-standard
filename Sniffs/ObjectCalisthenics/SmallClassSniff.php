@@ -13,9 +13,9 @@
  */
 
 /**
- * Symfony2_Sniffs_ObjectCalisthenics_NoElseSniff.
+ * Symfony2_Sniffs_ObjectCalisthenics_SmallClassSniff.
  *
- * Do not use the else or elseif keywords.
+ * Keep classes (and methods) small
  *
  * @category PHP
  * @package  PHP_CodeSniffer-Symfony2-ObjectCalisthenics
@@ -23,7 +23,7 @@
  * @license  http://spdx.org/licenses/MIT MIT License
  * @link     https://github.com/instaclick/Symfony2-coding-standard
  */
-class Symfony2_Sniffs_ObjectCalisthenics_NoElseSniff implements PHP_CodeSniffer_Sniff
+class Symfony2_Sniffs_ObjectCalisthenics_SmallClassSniff implements PHP_CodeSniffer_Sniff
 {
     /**
      * A list of tokenizers this sniff supports.
@@ -41,7 +41,7 @@ class Symfony2_Sniffs_ObjectCalisthenics_NoElseSniff implements PHP_CodeSniffer_
      */
     public function register()
     {
-        return array(T_ELSE, T_ELSEIF);
+        return array(T_CLASS, T_INTERFACE, T_TRAIT);
     }
 
     /**
@@ -53,6 +53,19 @@ class Symfony2_Sniffs_ObjectCalisthenics_NoElseSniff implements PHP_CodeSniffer_
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
-        $phpcsFile->addError('Do not use the else or elseif keywords', $stackPtr);
+        $parser = new PHPParser_Parser(new PHPParser_Lexer);
+
+        $visitor = new Symfony2_Sniffs_ObjectCalisthenics_SmallClassSniff_NodeVisitor;
+        $visitor->setPHPCodeSnifferFile($phpcsFile);
+
+        $traverser = new PHPParser_NodeTraverser;
+        $traverser->addVisitor($visitor);
+
+        try {
+            $code = file_get_contents($phpcsFile->getFilename());
+            $tree = $parser->parse($code);
+            $tree = $traverser->traverse($tree);
+        } catch (PHPParser_Error $e) {
+        }
     }
 }
