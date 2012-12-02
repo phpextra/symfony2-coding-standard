@@ -43,16 +43,6 @@ class UseAccessorsSniffTest
 
     /**
      * Invalid setter
-     *
-     * @param mixed $object
-     */
-    public function setObject($object)
-    {
-        $object->enabled = true;
-    }
-
-    /**
-     * Invalid setter
      */
     public function setDisabled()
     {

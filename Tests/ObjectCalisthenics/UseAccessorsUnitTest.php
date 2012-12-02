@@ -38,13 +38,7 @@ class Symfony2_Tests_ObjectCalisthenics_UseAccessorsUnitTest extends AbstractSni
     public function getErrorList()
     {
         return array(
-            7 => 2,
-            8 => 1,
-            37 => 1,
-            49 => 1,
             57 => 1,
-            67 => 1,
-            77 => 2,
         );
     }
 
@@ -59,7 +53,12 @@ class Symfony2_Tests_ObjectCalisthenics_UseAccessorsUnitTest extends AbstractSni
     public function getWarningList()
     {
         return array(
+            7 => 1,
+            8 => 1,
             9 => 1,
+            37 => 1,
+            47 => 1,
+            67 => 2,
         );
     }
 }
