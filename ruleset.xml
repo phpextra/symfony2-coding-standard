@@ -88,11 +88,11 @@
     </rule>
 
     <!-- Disable these object calisthenic sniffs -->
-    <rule ref="Symfony2.ObjectCalisthenics.SmallClass">
+    <!--rule ref="Symfony2.ObjectCalisthenics.SmallClass">
         <severity>0</severity>
     </rule>
 
     <rule ref="Symfony2.ObjectCalisthenics.UseAccessors">
         <severity>0</severity>
-    </rule>
+    </rule-->
 </ruleset>
