@@ -86,13 +86,4 @@
     <rule ref="Symfony2.Commenting.ClassComment.SpacingBeforeTags">
         <message>There should always be a description, followed by a blank line, before the tags of a class comment.</message>
     </rule>
-
-    <!-- Disable these object calisthenic sniffs -->
-    <rule ref="Symfony2.ObjectCalisthenics.SmallClass">
-        <severity>0</severity>
-    </rule>
-
-    <rule ref="Symfony2.ObjectCalisthenics.UseAccessors">
-        <severity>0</severity>
-    </rule>
 </ruleset>

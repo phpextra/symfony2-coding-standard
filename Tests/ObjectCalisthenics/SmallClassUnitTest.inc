@@ -20,11 +20,81 @@ class SmallClassSniffTest
          *
          *
          *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
          */
     }
 
     /**
      * small method, big doc block
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
      *
      *
      *
@@ -87,6 +157,21 @@ class SmallClassSniffTest
          *
          *
          *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
          */
     }
 
@@ -97,6 +182,21 @@ class SmallClassSniffTest
     {
         /**
          * This space intentionally left blank
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
          *
          *
          *

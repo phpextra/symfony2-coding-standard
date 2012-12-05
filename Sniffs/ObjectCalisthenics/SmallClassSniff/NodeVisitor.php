@@ -12,19 +12,19 @@ class Symfony2_Sniffs_ObjectCalisthenics_SmallClassSniff_NodeVisitor extends PHP
     private $metaData = array(
         'Stmt_Class' => array(
             'keyword' => 'class',
-            'maximum' => 100,
+            'maximum' => 200,
         ),
         'Stmt_Interface' => array(
             'keyword' => 'interface',
-            'maximum' => 100,
+            'maximum' => 200,
         ),
         'Stmt_Trait' => array(
             'keyword' => 'trait',
-            'maximum' => 100,
+            'maximum' => 200,
         ),
         'Stmt_ClassMethod' => array(
             'keyword' => 'method',
-            'maximum' => 10,
+            'maximum' => 25,
         ),
     );
 
