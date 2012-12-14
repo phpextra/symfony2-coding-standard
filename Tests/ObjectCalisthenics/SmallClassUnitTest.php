@@ -53,7 +53,7 @@ class Symfony2_Tests_ObjectCalisthenics_SmallClassUnitTest extends AbstractSniff
     {
         return array(
             7 => 1,
-            96 => 1,
+            181 => 1,
         );
     }
 }
