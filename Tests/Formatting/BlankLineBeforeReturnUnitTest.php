@@ -38,7 +38,7 @@ class Symfony2_Tests_Formatting_BlankLineBeforeReturnUnitTest extends AbstractSn
     public function getErrorList()
     {
         return array(
-            23 => 1,
+            37 => 1,
         );
     }
 

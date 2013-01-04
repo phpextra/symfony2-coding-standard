@@ -38,7 +38,7 @@ class Symfony2_Tests_Instaclick_BlankLineBeforeIfUnitTest extends AbstractSniffU
     public function getErrorList()
     {
         return array(
-            26 => 1,
+            49 => 1,
         );
     }
 

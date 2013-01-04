@@ -17,6 +17,20 @@ function validFunctionReturnThree()
     return;
 }
 
+function validFunctionReturnFour()
+{
+    // comment
+    return;
+}
+
+function validFunctionReturnFive()
+{
+    /**
+     * multi-line
+     */
+    return;
+}
+
 function invalidFunctionReturnOne()
 {
     echo "";

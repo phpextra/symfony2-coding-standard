@@ -20,6 +20,29 @@ function validFunctionIfThree()
     }
 }
 
+function validFunctionIfFour()
+{
+    /* comment */
+    if (true) {
+    }
+}
+
+function validFunctionIfFive()
+{
+    // single line comment
+    if (true) {
+    }
+}
+
+function validFunctionIfSix()
+{
+    /**
+     * multi-line doc block
+     */
+    if (true) {
+    }
+}
+
 function invalidFunctionIfOne()
 {
     echo "";
