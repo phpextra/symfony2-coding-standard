@@ -1,0 +1,13 @@
+{
+    "name": "instaclick/symfony2-coding-standard",
+    "description": "Symfony coding standard for PHP_CodeSniffer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Instaclick",
+            "homepage": "http://instaclick.com/",
+            "role": "Maintainer"
+        }
+    ],
+    "target-dir": "Symfony2"
+}
