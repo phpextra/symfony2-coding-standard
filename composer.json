@@ -9,5 +9,11 @@
             "role": "Maintainer"
         }
     ],
-    "target-dir": "Symfony2"
+    "target-dir": "Symfony2",
+    "autoload": {
+        "classmap": [
+            "Symfony2/Sniffs/"
+        ]
+    }
+
 }

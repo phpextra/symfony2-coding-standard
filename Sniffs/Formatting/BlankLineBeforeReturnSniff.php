@@ -35,7 +35,6 @@ class Symfony2_Sniffs_Formatting_BlankLineBeforeReturnSniff implements PHP_CodeS
      */
     public $supportedTokenizers = array(
         'PHP',
-        'JS',
     );
 
     /**
@@ -82,7 +81,8 @@ class Symfony2_Sniffs_Formatting_BlankLineBeforeReturnSniff implements PHP_CodeS
         } else if (count($prevLineTokens) > 0) {
             $phpcsFile->addError(
                 'Missing blank line before return statement',
-                $stackPtr
+                $stackPtr,
+                'BlankLineBeforeReturn'
             );
         }
 
