@@ -3,8 +3,6 @@
     <description>The Symfony2 coding standard.</description>
 
     <rule ref="PSR2"/>
-    <!-- https://github.com/squizlabs/PHP_CodeSniffer/pull/98 -->
-    <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
 
     <rule ref="Generic.Formatting.SpaceAfterCast"/>
     <rule ref="Generic.Functions.CallTimePassByReference"/>
