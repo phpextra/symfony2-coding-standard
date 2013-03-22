@@ -2,7 +2,14 @@
 <ruleset name="Symfony2">
     <description>The Symfony2 coding standard.</description>
 
-    <rule ref="PSR2"/>
+    <rule ref="PSR2">
+        <!--
+             reference: https://github.com/opensky/Symfony2-coding-standard/pull/42#discussion_r827518
+             fabpot writes:
+                 "There is no line length limit in the Symfony2 CS. I find such limits plain stupid."
+          -->
+        <exclude name="Generic.Files.LineLength"/>
+    </rule>
 
     <rule ref="Generic.Formatting.SpaceAfterCast"/>
     <rule ref="Generic.Functions.CallTimePassByReference"/>
