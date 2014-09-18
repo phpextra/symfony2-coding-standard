@@ -1,5 +1,5 @@
 {
-    "name": "instaclick/symfony2-coding-standard",
+    "name": "phpextra/symfony2-coding-standard",
     "description": "A code standard to check against the Symfony coding standards.",
     "license": "MIT",
     "authors": [
@@ -10,7 +10,5 @@
         }
     ],
     "target-dir": "Symfony2",
-    "require": {
-        "nikic/php-parser": "dev-master"
-    }
+    "require": {}
 }
